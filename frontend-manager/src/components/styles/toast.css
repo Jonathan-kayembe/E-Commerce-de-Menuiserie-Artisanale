@@ -1,0 +1,240 @@
+/* =====================================================
+   STYLES PERSONNALISÉS POUR REACT-TOASTIFY
+   Thème : Bois / Beige / Marron - Style professionnel
+   ===================================================== */
+
+/* Container principal */
+.Toastify__toast-container {
+  width: 380px;
+  padding: 0;
+}
+
+/* Wrapper de chaque toast */
+.Toastify__toast {
+  min-height: 64px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  margin-bottom: 12px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 90, 43, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.Toastify__toast:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Animation d'entrée depuis la droite */
+.Toastify__toast--rtl {
+  animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Toastify__toast {
+  animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation de sortie */
+.Toastify__toast--exit {
+  animation: slideOutRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+.Toastify__toast--exit-active {
+  animation: slideOutRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Body du toast */
+.Toastify__toast-body {
+  padding: 16px 20px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 1.5;
+}
+
+/* Icônes */
+.Toastify__toast-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Bouton de fermeture */
+.Toastify__close-button {
+  color: rgba(139, 90, 43, 0.6);
+  opacity: 0.7;
+  align-self: flex-start;
+  padding: 8px;
+  margin-top: 4px;
+  margin-right: 4px;
+  transition: all 0.2s ease;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1;
+  color: rgba(139, 90, 43, 1);
+  transform: scale(1.1);
+}
+
+/* Barre de progression */
+.Toastify__progress-bar {
+  height: 3px;
+  border-radius: 0 0 12px 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/* Assurer que la barre de progression fonctionne */
+.Toastify__progress-bar--controlled {
+  transition: transform 0.1s linear;
+}
+
+/* =====================================================
+   STYLES PAR TYPE DE TOAST
+   ===================================================== */
+
+/* SUCCESS - Vert avec accent bois */
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #f0f9f4 0%, #ffffff 100%);
+  color: #166534;
+  border-left: 4px solid #22c55e;
+}
+
+.Toastify__toast--success .Toastify__progress-bar {
+  background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+}
+
+.Toastify__toast--success .Toastify__toast-icon {
+  color: #22c55e;
+}
+
+/* ERROR - Rouge avec accent bois */
+.Toastify__toast--error {
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+  color: #991b1b;
+  border-left: 4px solid #ef4444;
+}
+
+.Toastify__toast--error .Toastify__progress-bar {
+  background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+}
+
+.Toastify__toast--error .Toastify__toast-icon {
+  color: #ef4444;
+}
+
+/* WARNING - Orange/Ambre avec accent bois */
+.Toastify__toast--warning {
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+  color: #92400e;
+  border-left: 4px solid #f59e0b;
+}
+
+.Toastify__toast--warning .Toastify__progress-bar {
+  background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+}
+
+.Toastify__toast--warning .Toastify__toast-icon {
+  color: #f59e0b;
+}
+
+/* INFO - Bleu avec accent bois */
+.Toastify__toast--info {
+  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+  color: #1e40af;
+  border-left: 4px solid #3b82f6;
+}
+
+.Toastify__toast--info .Toastify__progress-bar {
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.Toastify__toast--info .Toastify__toast-icon {
+  color: #3b82f6;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 480px) {
+  .Toastify__toast-container {
+    width: calc(100% - 32px);
+    left: 16px;
+    right: 16px;
+  }
+
+  .Toastify__toast {
+    min-height: 56px;
+    font-size: 13px;
+  }
+
+  .Toastify__toast-body {
+    padding: 12px 16px;
+  }
+}
+
+/* =====================================================
+   ACCESSIBILITÉ
+   ===================================================== */
+
+.Toastify__toast:focus {
+  outline: 2px solid rgba(139, 90, 43, 0.5);
+  outline-offset: 2px;
+}
+
+/* Mode sombre (optionnel) */
+@media (prefers-color-scheme: dark) {
+  .Toastify__toast--success {
+    background: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 100%);
+    color: #86efac;
+  }
+
+  .Toastify__toast--error {
+    background: linear-gradient(135deg, #2e1a1a 0%, #4a2d2d 100%);
+    color: #fca5a5;
+  }
+
+  .Toastify__toast--warning {
+    background: linear-gradient(135deg, #2e2a1a 0%, #4a422d 100%);
+    color: #fcd34d;
+  }
+
+  .Toastify__toast--info {
+    background: linear-gradient(135deg, #1a1e2e 0%, #2d324a 100%);
+    color: #93c5fd;
+  }
+}
+

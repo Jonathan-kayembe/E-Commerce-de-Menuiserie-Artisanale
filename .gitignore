@@ -1,0 +1,68 @@
+# Fichiers système
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.fleet/
+.nova/
+.phpactor.json
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environnement
+.env
+.env.local
+.env.*.local
+.env.backup
+.env.production
+
+# Dépendances
+node_modules/
+vendor/
+
+# Build / Dist
+dist/
+dist-ssr/
+build/
+public/build/
+public/hot/
+
+# Cache
+.cache/
+.parcel-cache/
+.phpunit.cache/
+.phpunit.result.cache
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+
+# Fichiers sensibles
+*.key
+auth.json
+Homestead.json
+Homestead.yaml
+
+# Base de données (optionnel - à garder si vous voulez versionner les scripts SQL)
+# *.sql
+
+# Images uploadées (optionnel - à garder si vous voulez versionner les images de test)
+# Backend/public/images/products/*
+

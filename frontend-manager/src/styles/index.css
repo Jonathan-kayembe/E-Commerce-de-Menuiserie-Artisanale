@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Buttons Premium */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-3 rounded-lg font-semibold 
+           shadow-medium hover:shadow-large hover:scale-105 active:scale-100 
+           transition-all duration-300 ease-out
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary-500 to-secondary-600 text-white px-6 py-3 rounded-lg font-semibold 
+           shadow-soft hover:shadow-medium hover:scale-105 active:scale-100 
+           transition-all duration-300 ease-out
+           focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 px-6 py-3 rounded-lg font-semibold 
+           bg-white hover:bg-primary-50 hover:border-primary-700 hover:text-primary-700
+           transition-all duration-300 ease-out
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply text-primary-600 px-6 py-3 rounded-lg font-semibold 
+           hover:bg-primary-50 transition-all duration-300 ease-out
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  /* Inputs Modernes */
+  .input-field {
+    @apply w-full border-2 border-gray-200 rounded-lg px-4 py-3 
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           transition-all duration-300 ease-out
+           placeholder:text-gray-400;
+  }
+
+  .input-field:focus {
+    @apply shadow-soft;
+  }
+
+  .input-field-error {
+    @apply border-error-500 focus:ring-error-500;
+  }
+
+  /* Cards Premium */
+  .card {
+    @apply bg-white rounded-xl shadow-soft p-6 
+           transition-all duration-300 ease-out
+           hover:shadow-medium;
+  }
+
+  .card-hover {
+    @apply card hover:scale-[1.01] hover:shadow-large;
+  }
+
+  /* Stats Card */
+  .stats-card {
+    @apply bg-white rounded-xl shadow-soft p-6 
+           border-l-4 border-transparent
+           hover:shadow-medium hover:border-primary-500
+           transition-all duration-300;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-success-50 text-success-700;
+  }
+
+  .badge-warning {
+    @apply badge bg-warning-50 text-warning-700;
+  }
+
+  .badge-error {
+    @apply badge bg-error-50 text-error-700;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-50 text-primary-700;
+  }
+
+  /* Loading Skeleton */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+  }
+}
+
