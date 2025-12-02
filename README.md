@@ -1,10 +1,26 @@
-# E-Commerce Menuisier
+# 🛒 E-Commerce Menuisier
 
-Application e-commerce complète pour une entreprise de menuiserie, développée avec Laravel (backend) et React (frontend).
+> Application e-commerce complète pour une entreprise de menuiserie artisanale, développée avec **Laravel 11** (backend API REST) et **React 18** (frontend moderne).
+
+[![Laravel](https://img.shields.io/badge/Laravel-11-FF2D20?style=flat&logo=laravel&logoColor=white)](https://laravel.com)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org)
+[![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat&logo=php&logoColor=white)](https://php.net)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql&logoColor=white)](https://mysql.com)
 
 ## 📋 Description
 
-Ce projet est une plateforme e-commerce permettant aux clients de parcourir et commander des produits de menuiserie, et aux managers d'administrer le catalogue, les commandes et les utilisateurs.
+Plateforme e-commerce complète avec deux interfaces distinctes :
+- **Interface Client** : Parcours de catalogue, panier, commandes, gestion de profil
+- **Interface Manager** : Administration complète (produits, catégories, commandes, utilisateurs, statistiques)
+
+### ✨ Points forts du projet
+
+- 🔐 **Authentification sécurisée** : Système de tokens API avec expiration
+- 🛒 **Gestion de panier** : Synchronisation client/serveur pour utilisateurs authentifiés
+- 📦 **Gestion de commandes** : Workflow complet de commande à livraison
+- 🖼️ **Upload d'images** : Gestion des images produits avec validation
+- 📊 **Dashboard administrateur** : Statistiques et gestion complète
+- 🎨 **Interface moderne** : Design responsive avec Tailwind CSS
 
 ## 🏗️ Architecture
 
@@ -163,21 +179,82 @@ Pour créer un compte manager, utilisez la page d'inscription du frontend manage
 
 L'application utilise un système d'authentification basé sur des tokens API stockés dans la base de données. Les tokens sont gérés automatiquement lors de la connexion et de la déconnexion.
 
-## 📝 Fonctionnalités
+## 📝 Fonctionnalités détaillées
 
-### Pour les clients
-- Parcourir le catalogue de produits
-- Ajouter des produits au panier
-- Passer des commandes
-- Consulter l'historique des commandes
-- Gérer son profil
+### 👥 Interface Client
+- ✅ **Catalogue produits** : Affichage avec filtres par catégorie, recherche
+- ✅ **Détails produits** : Galerie d'images, informations complètes
+- ✅ **Panier** : Ajout, modification, suppression d'articles
+- ✅ **Commande** : Processus de commande complet avec validation
+- ✅ **Historique** : Consultation des commandes passées
+- ✅ **Profil utilisateur** : Gestion des informations personnelles
 
-### Pour les managers
-- Gérer le catalogue de produits (CRUD)
-- Gérer les catégories
-- Gérer les commandes
-- Gérer les utilisateurs
-- Consulter les statistiques
+### 👨‍💼 Interface Manager
+- ✅ **Gestion produits** : CRUD complet avec upload d'images
+- ✅ **Gestion catégories** : Création et modification des catégories
+- ✅ **Gestion commandes** : Suivi des statuts (préparation, payée, expédiée, livrée)
+- ✅ **Gestion utilisateurs** : Liste et gestion des comptes clients/managers
+- ✅ **Statistiques** : Tableaux de bord avec métriques clés
+
+## 🏗️ Architecture technique
+
+### Backend (Laravel)
+- **Architecture** : API REST avec pattern Repository
+- **Authentification** : Tokens API personnalisés (table `api_tokens`)
+- **Base de données** : MySQL avec relations et contraintes FK
+- **Sécurité** : Middleware d'authentification, validation des requêtes, rate limiting
+- **Upload** : Gestion sécurisée des fichiers images
+
+### Frontend (React)
+- **State Management** : Context API (AuthContext, CartContext)
+- **Routing** : React Router avec routes protégées
+- **Formulaires** : React Hook Form avec validation Yup
+- **HTTP Client** : Axios avec intercepteurs pour tokens
+- **UI** : Tailwind CSS avec composants réutilisables
+
+## 🔒 Sécurité
+
+- ✅ Tokens API avec expiration automatique
+- ✅ Validation des données côté serveur
+- ✅ Protection CSRF
+- ✅ Rate limiting sur les routes sensibles
+- ✅ Hashage des mots de passe (bcrypt)
+- ✅ Fichiers `.env` exclus du versioning
+
+## 📸 Captures d'écran
+
+> *Ajoutez ici des captures d'écran de votre application pour rendre le README plus attractif*
+
+## 🚀 Déploiement
+
+### Prérequis
+- PHP 8.2+
+- Composer
+- Node.js 18+
+- MySQL 8.0+
+
+### Installation rapide
+Voir la section [Installation](#-installation) ci-dessus pour les instructions détaillées.
+
+## 📚 Structure du code
+
+Le projet suit les bonnes pratiques :
+- **Backend** : Architecture MVC avec pattern Repository
+- **Frontend** : Composants modulaires et réutilisables
+- **API** : Endpoints RESTful bien structurés
+- **Base de données** : Schéma normalisé avec relations
+
+## 🛠️ Technologies & Outils
+
+| Catégorie | Technologies |
+|----------|------------|
+| **Backend** | Laravel 11, PHP 8.2+, PDO, MySQL |
+| **Frontend** | React 18, Vite, React Router |
+| **Styling** | Tailwind CSS |
+| **Validation** | React Hook Form, Yup |
+| **HTTP** | Axios |
+| **Notifications** | React Toastify |
+| **Date** | date-fns |
 
 ## 📄 Licence
 
@@ -185,5 +262,11 @@ Ce projet est développé dans le cadre d'un projet académique.
 
 ## 👨‍💻 Auteur
 
+**Jonathan Kayembe**
+
 Développé dans le cadre du cours "Analyse et conception de systèmes" - UA3
+
+---
+
+⭐ Si ce projet vous a plu, n'hésitez pas à laisser une étoile !
 
