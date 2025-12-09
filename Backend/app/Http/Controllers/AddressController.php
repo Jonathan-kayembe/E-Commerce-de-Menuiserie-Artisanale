@@ -5,10 +5,35 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\IAddressRepository;
 
+/**
+ * Contrôleur de gestion des adresses
+ * 
+ * Gère toutes les opérations CRUD sur les adresses de livraison et de facturation :
+ * - Liste des adresses d'un utilisateur (getByUser)
+ * - Création d'une adresse (store)
+ * - Affichage d'une adresse (show)
+ * - Modification d'une adresse (update)
+ * - Suppression d'une adresse (destroy)
+ * 
+ * Les adresses sont utilisées pour la livraison et la facturation des commandes.
+ * Un utilisateur peut avoir plusieurs adresses et en définir une par défaut.
+ * 
+ * @package App\Http\Controllers
+ * @author Jonathan Kayembe
+ */
 class AddressController extends Controller
 {
+    /**
+     * Repository pour la gestion des adresses
+     * @var IAddressRepository
+     */
     private IAddressRepository $repo;
 
+    /**
+     * Constructeur avec injection de dépendances
+     * 
+     * @param IAddressRepository $repo Repository des adresses
+     */
     public function __construct(IAddressRepository $repo)
     {
         $this->repo = $repo;
