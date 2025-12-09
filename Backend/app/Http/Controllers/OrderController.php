@@ -9,14 +9,71 @@ use App\Repositories\IProductRepository;
 use App\Repositories\IPaymentRepository;
 use App\Repositories\ICartItemRepository;
 
+/**
+ * Contrôleur de gestion des commandes
+ * 
+ * Gère toutes les opérations liées aux commandes des clients :
+ * - Liste des commandes (index) - différencie managers et clients
+ * - Création d'une commande depuis le panier (store)
+ * - Affichage d'une commande (show)
+ * - Modification d'une commande (update) - statut, suivi, etc.
+ * - Suppression d'une commande (destroy)
+ * - Commandes d'un utilisateur (getByUser)
+ * 
+ * Le processus de commande inclut :
+ * - Vérification du stock disponible
+ * - Création des order_items
+ * - Mise à jour du stock des produits
+ * - Création d'un paiement fictif
+ * - Vidage automatique du panier
+ * 
+ * SÉCURITÉ : Les clients ne peuvent voir/modifier que leurs propres commandes.
+ * Les managers ont accès à toutes les commandes.
+ * 
+ * @package App\Http\Controllers
+ * @author Jonathan Kayembe
+ */
 class OrderController extends Controller
 {
+    /**
+     * Repository pour la gestion des commandes
+     * @var IOrderRepository
+     */
     private IOrderRepository $orderRepo;
+    
+    /**
+     * Repository pour la gestion des articles de commande
+     * @var IOrderItemRepository
+     */
     private IOrderItemRepository $orderItemRepo;
+    
+    /**
+     * Repository pour la gestion des produits
+     * @var IProductRepository
+     */
     private IProductRepository $productRepo;
+    
+    /**
+     * Repository pour la gestion des paiements
+     * @var IPaymentRepository
+     */
     private IPaymentRepository $paymentRepo;
+    
+    /**
+     * Repository pour la gestion des articles du panier
+     * @var ICartItemRepository
+     */
     private ICartItemRepository $cartItemRepo;
 
+    /**
+     * Constructeur avec injection de dépendances
+     * 
+     * @param IOrderRepository $orderRepo Repository des commandes
+     * @param IOrderItemRepository $orderItemRepo Repository des articles de commande
+     * @param IProductRepository $productRepo Repository des produits
+     * @param IPaymentRepository $paymentRepo Repository des paiements
+     * @param ICartItemRepository $cartItemRepo Repository des articles du panier
+     */
     public function __construct(
         IOrderRepository $orderRepo,
         IOrderItemRepository $orderItemRepo,

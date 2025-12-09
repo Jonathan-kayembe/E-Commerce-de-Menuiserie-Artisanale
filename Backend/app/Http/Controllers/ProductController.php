@@ -5,13 +5,41 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\IProductRepository;
 
-class ProductController extends Controller // herite de la classe Controller de Laravel
+/**
+ * Contrôleur de gestion des produits
+ * 
+ * Gère toutes les opérations CRUD sur les produits du catalogue :
+ * - Liste de tous les produits (index)
+ * - Création d'un produit (store)
+ * - Affichage d'un produit (show)
+ * - Modification d'un produit (update)
+ * - Suppression d'un produit (destroy)
+ * 
+ * Les produits représentent les articles vendus dans l'e-commerce de menuiserie.
+ * Chaque produit appartient à une catégorie et possède des caractéristiques
+ * spécifiques (matériau, couleur, finition, prix, stock, etc.).
+ * 
+ * @package App\Http\Controllers
+ * @author Jonathan Kayembe
+ */
+class ProductController extends Controller
 {
-    private IProductRepository $repo; // pour la gestion des produits
+    /**
+     * Repository pour la gestion des produits
+     * @var IProductRepository
+     */
+    private IProductRepository $repo;
 
-    public function __construct(IProductRepository $repo) //le constructeur reçoit automatiquement le Repository via **l'injection de dépendance**
+    /**
+     * Constructeur avec injection de dépendances
+     * 
+     * Le constructeur reçoit automatiquement le Repository via l'injection de dépendance de Laravel.
+     * 
+     * @param IProductRepository $repo Repository des produits
+     */
+    public function __construct(IProductRepository $repo)
     {
-        $this->repo = $repo; // on stocke le Repository dans la propriété de la classe
+        $this->repo = $repo;
     }
 
     // INDEX — liste tous les produits
